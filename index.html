@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Name Day, My Love ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at top, #ffe5f0 0, #fdf6ff 40%, #f5f7ff 100%);
+      --accent: #ff4f8b;
+      --accent-soft: #ffe3ed;
+      --text-main: #2c2440;
+      --card-bg: #ffffffcc;
+      --border-soft: #f1e6ff;
+      --shadow-soft: 0 14px 40px rgba(31, 21, 72, 0.12);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+      background: #ffffffee;
+      border-radius: 28px;
+      box-shadow: var(--shadow-soft);
+      padding: 28px 20px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 40px 40px 44px;
+      }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0.5;
+      animation: floatUp 10s linear infinite;
+      pointer-events: none;
+    }
+
+    .heart:nth-child(1) { left: 5%; bottom: -40px; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 20%; bottom: -60px; animation-delay: 2s; }
+    .heart:nth-child(3) { left: 70%; bottom: -50px; animation-delay: 4s; }
+    .heart:nth-child(4) { left: 85%; bottom: -70px; animation-delay: 6s; }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      10%  { opacity: 0.6; }
+      50%  { transform: translateY(-180px) translateX(15px) scale(1.2); opacity: 0.9; }
+      100% { transform: translateY(-360px) translateX(-10px) scale(0.8); opacity: 0; }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    header .highlight {
+      background: linear-gradient(90deg, #ff72a5, #ffb36b);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    header .date-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .left-column,
+    .right-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @media (max-width: 899px) {
+      .right-column {
+        margin-top: 4px;
+      }
+    }
+
+    section {
+      background: var(--card-bg);
+      border-radius: 22px;
+      padding: 18px 16px 18px;
+      border: 1px solid var(--border-soft);
+      backdrop-filter: blur(12px);
+    }
+
+    section h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+
+    .love-letter p {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .love-letter p:last-child {
+      margin-bottom: 0;
+    }
+
+    .signature {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .signature span {
+      font-weight: 600;
+    }
+
+    .countdown {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .countdown-display {
+      display: inline-flex;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #f7f1ff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      align-items: center;
+    }
+
+    .countdown-display span {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+
+    .countdown-display strong {
+      font-size: 1rem;
+    }
+
+    .countdown small {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .reason-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 10px 10px 11px;
+      border: 1px solid #f4e8ff;
+      font-size: 0.9rem;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .reason-icon {
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+
+    .memories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .memory-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 160px;
+    }
+
+    .memory-image {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .memory-caption {
+      font-size: 0.8rem;
+      padding: 8px 9px;
+      line-height: 1.3;
+    }
+
+    .closing {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .closing span {
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.75rem;
+      opacity: 0.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Floating hearts (you can remove if you want) -->
+    <div class="heart">💖</div>
+    <div class="heart">💘</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+
+    <header>
+      <!-- TODO: change "My Love" and the date -->
+      <h1>
+        Happy Name Day,
+        <span class="highlight">My Love</span> 💐
+      </h1>
+      <p>Today I celebrate the day your beautiful name was given to the world.</p>
+      <div class="date-pill">
+        <span>📅</span>
+        <span id="nameDayDate">Name Day: 25 March</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="left-column">
+        <!-- Love letter -->
+        <section class="love-letter">
+          <h2>My note to you</h2>
+          <!-- TODO: rewrite this to your own words -->
+          <p>
+            My love, your name is more than just letters and sounds. It is comfort, home, laughter,
+            and the calm in my chaos. When I whisper it, the whole world feels softer.
+          </p>
+          <p>
+            Thank you for your kindness, your strength, your patience with me, and
+            all the tiny everyday moments that make my life feel extraordinary.
+          </p>
+          <p>
+            On your name day, I just want you to know:
+            there is no universe where I wouldn't choose you again and again.
+          </p>
+          <p class="signature">
+            With all my love,<br />
+            <span>Your Peter ❤️</span>
+          </p>
+        </section>
+
+        <!-- Countdown -->
+        <section>
+          <h2>Counting down to you</h2>
+          <div class="countdown">
+            <div class="countdown-display" id="countdown">
+              <span><strong>0</strong> days</span>
+              <span><strong>0</strong> hours</span>
+              <span><strong>0</strong> mins</span>
+            </div>
+            <small>
+              <!-- TODO: adjust the date inside the script below to match the real name day -->
+              Next celebration is closer than it seems. I can't wait. 🥰
+            </small>
+          </div>
+        </section>
+
+        <!-- Reasons I adore you -->
+        <section>
+          <h2>Reasons I adore you</h2>
+          <div class="reasons-grid">
+            <!-- TODO: customize these reasons -->
+            <div class="reason-card">
+              <div class="reason-icon">🌉</div>
+              <div>
+                The way your eyes light up when you talk about the things you love —
+                I could listen forever.
+              </div>
+            </div>
+            <div class="reason-card">
+              <div class="reason-icon">🐾</div>
+              <div>
+                Your kindness to people, animals, and the world around you
+                makes me proud to stand beside you.
+              </div>
+            </div>
+            <div class="reason-card">
+              <div class="reason-icon">🌍</div>
+              <div>
+                Every place is better with you there.
+                Even an ordinary street becomes a little adventure.
+              </div>
+            </div>
+            <div class="reason-card">
+              <div class="reason-icon">🎵</div>
+              <div>
+                You are my favorite song, the one I never get tired of replaying.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="right-column">
+        <!-- Memories / Photos -->
+        <section>
+          <h2>Little memories</h2>
+          <p style="font-size: 0.9rem; margin-bottom: 8px; opacity: 0.9;">
+            Some snapshots that always make me smile when I think of your name:
+          </p>
+          <div class="memories-grid">
+            <!-- TODO: Replace background-image URLs with your own photos or remove this grid -->
+            <div class="memory-card">
+              <div class="memory-image"
+                   style="background-image:url('https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=800');">
+              </div>
+              <div class="memory-caption">
+                That walk where we laughed about everything and nothing at all.
+              </div>
+            </div>
+            <div class="memory-card">
+              <div class="memory-image"
+                   style="background-image:url('https://images.pexels.com/photos/3693892/pexels-photo-3693892.jpeg?auto=compress&cs=tinysrgb&w=800');">
+              </div>
+              <div class="memory-caption">
+                The quiet moment where the world disappeared and only we remained.
+              </div>
+            </div>
+            <div class="memory-card">
+              <div class="memory-image"
+                   style="background-image:url('https://images.pexels.com/photos/5727901/pexels-photo-5727901.jpeg?auto=compress&cs=tinysrgb&w=800');">
+              </div>
+              <div class="memory-caption">
+                Your smile, your name, and a feeling I never want to lose.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Closing note -->
+        <section class="closing">
+          <p>
+            If your name was a star, it would be the one I keep wishing on. ✨<br />
+            <span>Happy Name Day, my heart. 💝</span>
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      Made with 💗 by someone hopelessly in love.
+      <!-- Optional: link to your GitHub profile -->
+      <!-- <br/> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a> -->
+    </footer>
+  </div>
+
+  <script>
+    // === NAME DAY CONFIG ===
+    // TODO: set this to your love's next name day (YYYY-MM-DD)
+    const nextNameDay = new Date("2026-03-25T00:00:00");
+
+    const countdownEl = document.getElementById("countdown");
+    const nameDayDateEl = document.getElementById("nameDayDate");
+    if (nameDayDateEl) {
+      // Show just the date nicely
+      const options = { day: "numeric", month: "long", year: "numeric" };
+      nameDayDateEl.textContent = "Next Name Day: " +
+        nextNameDay.toLocaleDateString(undefined, options);
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const target = nextNameDay.getTime();
+      const distance = target - now;
+
+      if (!countdownEl) return;
+
+      if (distance <= 0) {
+        countdownEl.textContent = "Today is your Name Day! 🎉";
+        return;
+      }
+
+      const days  = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const mins  = Math.floor((distance / (1000 * 60)) % 60);
+
+      countdownEl.innerHTML = `
+        <span><strong>${days}</strong> days</span>
+        <span><strong>${hours}</strong> hours</span>
+        <span><strong>${mins}</strong> mins</span>
+      `;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60 * 1000); // update every minute
+  </script>
+</body>
+</html>
