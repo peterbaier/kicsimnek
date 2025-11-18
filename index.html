@@ -476,6 +476,7 @@
             If you want a fixed city, replace the src with a city-specific embed from Google Maps.
           -->
           <iframe
+            id="tunaMap"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps?q=tuna+steak+restaurant&output=embed">
@@ -670,6 +671,39 @@
           hideLightbox();
         }
       });
+    })();
+
+    // Center the tuna map on the device location (if allowed)
+    (function () {
+      const iframe = document.getElementById("tunaMap");
+    
+      // Bail out if no iframe or browser doesn't support geolocation
+      if (!iframe || !navigator.geolocation) {
+        return;
+      }
+    
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const lat = pos.coords.latitude;
+          const lng = pos.coords.longitude;
+    
+          // What we want to search for
+          const query = encodeURIComponent("tuna steak restaurant");
+    
+          // Use lat/lng + zoom to center the normal Google Maps view
+          // ll  = center (lat,lng)
+          // z   = zoom level (smaller = zoomed out, bigger = zoomed in)
+          const url =
+            `https://www.google.com/maps?q=${query}` +
+            `&ll=${lat},${lng}&z=14&output=embed`;
+    
+          iframe.src = url;
+        },
+        (err) => {
+          console.warn("Geolocation failed or was denied:", err);
+          // Do nothing – it will just use the default iframe src
+        }
+      );
     })();
   </script>
 </body>
