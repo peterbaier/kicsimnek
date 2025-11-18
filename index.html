@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happy Name Day, My Love ❤️</title>
+  <title>Katarzyna Name Day Tuna Command Center 🐟🚀</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg-gradient: radial-gradient(circle at top, #ffe5f0 0, #fdf6ff 40%, #f5f7ff 100%);
-      --accent: #ff4f8b;
-      --accent-soft: #ffe3ed;
-      --text-main: #2c2440;
-      --card-bg: #ffffffcc;
-      --border-soft: #f1e6ff;
-      --shadow-soft: 0 14px 40px rgba(31, 21, 72, 0.12);
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --bg: radial-gradient(circle at top, #fee5ef 0, #f5f7ff 45%, #eef5ff 100%);
+      --surface: #ffffff;
+      --accent: #ff4f88;
+      --accent-soft: #ffe0f0;
+      --accent-2: #4b7cff;
+      --text-main: #232335;
+      --text-muted: #77748b;
+      --border: #e5e0f0;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --shadow-soft: 0 18px 45px rgba(57, 55, 95, 0.25);
+      --shadow-card: 0 10px 24px rgba(57, 55, 95, 0.12);
     }
 
     * {
@@ -23,460 +26,651 @@
     }
 
     body {
-      font-family: var(--font-main);
-      background: var(--bg-gradient);
-      color: var(--text-main);
+      background: var(--bg);
       min-height: 100vh;
+      font-family: var(--font);
       display: flex;
       justify-content: center;
-      padding: 24px 12px;
+      padding: 22px 10px;
+      color: var(--text-main);
+      overflow-x: hidden; /* prevent sideways scrolling on mobile */
     }
 
     .page {
+      max-width: 1000px;
       width: 100%;
-      max-width: 960px;
       background: #ffffffee;
       border-radius: 28px;
       box-shadow: var(--shadow-soft);
-      padding: 28px 20px 32px;
+      border: 1px solid var(--border);
+      padding: 22px 16px 22px;
       position: relative;
       overflow: hidden;
     }
 
     @media (min-width: 768px) {
-      .page {
-        padding: 40px 40px 44px;
-      }
+      .page { padding: 26px 28px 28px; }
     }
 
-    /* Floating hearts */
-    .heart {
+    /* Tiny floating hearts */
+    .float-heart {
       position: absolute;
-      font-size: 20px;
-      opacity: 0.5;
-      animation: floatUp 10s linear infinite;
+      font-size: 18px;
+      opacity: 0.2;
+      animation: floatUp 14s linear infinite;
       pointer-events: none;
     }
-
-    .heart:nth-child(1) { left: 5%; bottom: -40px; animation-delay: 0s; }
-    .heart:nth-child(2) { left: 20%; bottom: -60px; animation-delay: 2s; }
-    .heart:nth-child(3) { left: 70%; bottom: -50px; animation-delay: 4s; }
-    .heart:nth-child(4) { left: 85%; bottom: -70px; animation-delay: 6s; }
+    .float-heart:nth-child(1) { left: 8%; bottom: -30px; animation-delay: 0s; }
+    .float-heart:nth-child(2) { left: 80%; bottom: -40px; animation-delay: 3s; }
+    .float-heart:nth-child(3) { left: 50%; bottom: -35px; animation-delay: 6s; }
 
     @keyframes floatUp {
-      0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
-      10%  { opacity: 0.6; }
-      50%  { transform: translateY(-180px) translateX(15px) scale(1.2); opacity: 0.9; }
-      100% { transform: translateY(-360px) translateX(-10px) scale(0.8); opacity: 0; }
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      15% { opacity: 0.4; }
+      50% { transform: translateY(-180px) translateX(20px); opacity: 0.7; }
+      100% { transform: translateY(-360px) translateX(-10px); opacity: 0; }
     }
 
     header {
-      text-align: center;
-      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
       position: relative;
       z-index: 1;
     }
 
-    header h1 {
-      font-size: clamp(2.1rem, 4vw, 3rem);
-      letter-spacing: 0.04em;
-      margin-bottom: 8px;
+    .title-block {
+      max-width: 420px;
     }
 
-    header .highlight {
-      background: linear-gradient(90deg, #ff72a5, #ffb36b);
-      -webkit-background-clip: text;
-      color: transparent;
-      font-weight: 800;
-    }
-
-    header p {
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
-
-    header .date-pill {
+    .chip {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
+      gap: 6px;
+      padding: 4px 10px;
       border-radius: 999px;
+      font-size: 0.75rem;
       background: var(--accent-soft);
       color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-top: 10px;
+      margin-bottom: 6px;
     }
 
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+    h1 {
+      font-size: clamp(1.9rem, 3.4vw, 2.4rem);
+      margin-bottom: 4px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .badge-year {
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: #f5f6ff;
+      border: 1px solid #dde3ff;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .badge-year {
+        width: 100%;
+        text-align: left;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 14px;
       position: relative;
       z-index: 1;
     }
 
-    @media (min-width: 900px) {
-      main {
-        flex-direction: row;
-        align-items: flex-start;
-      }
+    @media (max-width: 799px) {
+      .grid { grid-template-columns: 1fr; }
     }
 
-    .left-column,
-    .right-column {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 14px 14px 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    @media (max-width: 899px) {
-      .right-column {
-        margin-top: 4px;
-      }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(57, 55, 95, 0.22);
     }
 
-    section {
-      background: var(--card-bg);
-      border-radius: 22px;
-      padding: 18px 16px 18px;
-      border: 1px solid var(--border-soft);
-      backdrop-filter: blur(12px);
-    }
-
-    section h2 {
-      font-size: 1rem;
+    .card h2 {
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-      margin-bottom: 10px;
-      opacity: 0.7;
-    }
-
-    .love-letter p {
-      font-size: 0.98rem;
-      line-height: 1.6;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
       margin-bottom: 8px;
     }
 
-    .love-letter p:last-child {
-      margin-bottom: 0;
+    .heart-line {
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    .signature {
-      margin-top: 12px;
+    .heart-line strong {
+      color: var(--accent);
+    }
+
+    .fun-points {
+      margin-top: 8px;
       font-size: 0.9rem;
-      opacity: 0.8;
+      list-style: none;
+      padding-left: 0;
     }
 
-    .signature span {
-      font-weight: 600;
-    }
-
-    .countdown {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: flex-start;
-    }
-
-    .countdown-display {
-      display: inline-flex;
-      gap: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      background: #f7f1ff;
-      border-radius: 999px;
-      padding: 8px 12px;
-      align-items: center;
-    }
-
-    .countdown-display span {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 2px;
-    }
-
-    .countdown-display strong {
-      font-size: 1rem;
-    }
-
-    .countdown small {
-      font-size: 0.75rem;
-      opacity: 0.7;
-    }
-
-    .reasons-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .reason-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 10px 10px 11px;
-      border: 1px solid #f4e8ff;
-      font-size: 0.9rem;
+    .fun-points li {
       display: flex;
       gap: 8px;
-      align-items: flex-start;
+      margin-bottom: 4px;
     }
 
-    .reason-icon {
-      font-size: 1.1rem;
-      margin-top: 2px;
+    .fun-points span:first-child {
+      width: 1.2rem;
+      text-align: center;
+      flex-shrink: 0;
     }
 
-    .memories-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
+    .map-wrapper {
+      border-radius: 17px;
+      overflow: hidden;
+      border: 1px solid #d6dfff;
+      background: #f1f3ff;
       margin-top: 6px;
     }
 
-    .memory-card {
+    iframe {
+      width: 100%;
+      height: 240px;
+      border: 0;
+      display: block;
+    }
+
+    .map-wrapper small {
+      display: block;
+      padding: 6px 8px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .hof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+
+    .hof-card {
       border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border-soft);
-      background: #fff;
+      border: 1px solid #f2d9f0;
+      background: radial-gradient(circle at top, #fff5fb 0, #ffffff 60%);
+      padding: 9px 9px 10px;
       display: flex;
       flex-direction: column;
-      min-height: 160px;
+      gap: 6px;
     }
 
-    .memory-image {
-      flex: 1;
-      background-size: cover;
-      background-position: center;
+    .hof-header {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .memory-caption {
-      font-size: 0.8rem;
-      padding: 8px 9px;
-      line-height: 1.3;
-    }
-
-    .closing {
-      text-align: center;
-      margin-top: 10px;
+    .hof-card h3 {
       font-size: 0.95rem;
+      color: var(--accent);
     }
 
-    .closing span {
-      font-size: 1.1rem;
+    .hof-card small {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hof-photo-btn {
+      border: none;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+
+    .hof-photo-btn img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      object-fit: cover;
+      max-height: 120px;
+      transition: transform 0.2s ease;
+    }
+
+    .hof-photo-btn:hover img {
+      transform: scale(1.03);
+    }
+
+    .hof-text {
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .tag-upcoming {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e9f0ff;
+      color: var(--accent-2);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 4px;
+    }
+
+    .upcoming-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+
+    .upcoming-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Random mission card */
+
+    #randomMissionCard button {
+      margin-top: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), #ff8aa8);
+      color: #fff;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+    }
+
+    #missionText {
+      font-size: 0.9rem;
+      margin-top: 4px;
+      color: var(--text-main);
+      line-height: 1.5;
     }
 
     footer {
+      margin-top: 16px;
       text-align: center;
-      margin-top: 20px;
-      font-size: 0.75rem;
-      opacity: 0.6;
+      font-size: 0.8rem;
+      color: var(--text-muted);
       position: relative;
       z-index: 1;
     }
 
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
+    /* Lightbox for photos */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .lightbox.visible {
+      display: flex;
+    }
+
+    .lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 25, 0.7);
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      z-index: 100;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-content img {
+      display: block;
+      max-width: 100%;
+      max-height: 90vh;
+    }
+
+    #lightboxClose {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      border: none;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: rgba(255,255,255,0.9);
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      body {
+        padding: 14px 8px;
+      }
+      .page {
+        padding: 18px 12px 18px;
+        border-radius: 22px;
+      }
+      .card {
+        padding: 12px 11px 13px;
+        border-radius: 16px;
+      }
+      iframe {
+        height: 210px;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      .subtitle {
+        font-size: 0.88rem;
+      }
+      #randomMissionCard button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 400px) {
+      iframe {
+        height: 190px;
+      }
+      .chip {
+        font-size: 0.72rem;
+      }
+      .badge-year {
+        font-size: 0.76rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- Floating hearts (you can remove if you want) -->
-    <div class="heart">💖</div>
-    <div class="heart">💘</div>
-    <div class="heart">💕</div>
-    <div class="heart">💗</div>
+    <!-- soft floating hearts -->
+    <div class="float-heart">💗</div>
+    <div class="float-heart">💘</div>
+    <div class="float-heart">💖</div>
 
     <header>
-      <!-- TODO: change "My Love" and the date -->
-      <h1>
-        Happy Name Day,
-        <span class="highlight">My Love</span> 💐
-      </h1>
-      <p>Today I celebrate the day your beautiful name was given to the world.</p>
-      <div class="date-pill">
-        <span>📅</span>
-        <span id="nameDayDate">Name Day: 25 March</span>
+      <div class="title-block">
+        <div class="chip">🐟 Katarzyna Name Day · Tuna Command Center</div>
+        <h1>Welcome back, <span>Katarzyna</span></h1>
+        <p class="subtitle">
+          You scanned the QR code, which officially makes this
+          <strong>Mission Control for Tuna &amp; Love</strong>, valid every single year.
+        </p>
+      </div>
+      <div class="badge-year">
+        This page is evergreen: new year, same amazing Katarzyna, fresh tuna quests.
       </div>
     </header>
 
-    <main>
-      <div class="left-column">
-        <!-- Love letter -->
-        <section class="love-letter">
-          <h2>My note to you</h2>
-          <!-- TODO: rewrite this to your own words -->
-          <p>
-            My love, your name is more than just letters and sounds. It is comfort, home, laughter,
-            and the calm in my chaos. When I whisper it, the whole world feels softer.
-          </p>
-          <p>
-            Thank you for your kindness, your strength, your patience with me, and
-            all the tiny everyday moments that make my life feel extraordinary.
-          </p>
-          <p>
-            On your name day, I just want you to know:
-            there is no universe where I wouldn't choose you again and again.
-          </p>
-          <p class="signature">
-            With all my love,<br />
-            <span>Your Peter ❤️</span>
-          </p>
-        </section>
+    <div class="grid">
+      <!-- LEFT: evergreen love message -->
+      <section class="card">
+        <h2>Core message (works every year)</h2>
+        <p class="heart-line">
+          Dear <strong>Katarzyna</strong>, your name hits my ears like the first bite
+          of perfectly seared tuna steak: warm, surprising, and impossible to stop thinking about.
+        </p>
+        <p class="heart-line" style="margin-top:6px;">
+          No matter which year it is when you scan this, one thing doesn’t change:
+          I am still completely, happily, irreversibly into you.
+        </p>
 
-        <!-- Countdown -->
-        <section>
-          <h2>Counting down to you</h2>
-          <div class="countdown">
-            <div class="countdown-display" id="countdown">
-              <span><strong>0</strong> days</span>
-              <span><strong>0</strong> hours</span>
-              <span><strong>0</strong> mins</span>
-            </div>
-            <small>
-              <!-- TODO: adjust the date inside the script below to match the real name day -->
-              Next celebration is closer than it seems. I can't wait. 🥰
-            </small>
-          </div>
-        </section>
+        <ul class="fun-points">
+          <li><span>💗</span><span>Your official title: Supreme High Priestess of Tuna &amp; Bridges.</span></li>
+          <li><span>😏</span><span>Side quest: pretend we only came for the food, not to stare at you across the table.</span></li>
+          <li><span>🐟</span><span>Annual rule: at least one tuna steak + at least one “Katarzyna, you’re amazing” said out loud.</span></li>
+        </ul>
+      </section>
 
-        <!-- Reasons I adore you -->
-        <section>
-          <h2>Reasons I adore you</h2>
-          <div class="reasons-grid">
-            <!-- TODO: customize these reasons -->
-            <div class="reason-card">
-              <div class="reason-icon">🌉</div>
-              <div>
-                The way your eyes light up when you talk about the things you love —
-                I could listen forever.
-              </div>
-            </div>
-            <div class="reason-card">
-              <div class="reason-icon">🐾</div>
-              <div>
-                Your kindness to people, animals, and the world around you
-                makes me proud to stand beside you.
-              </div>
-            </div>
-            <div class="reason-card">
-              <div class="reason-icon">🌍</div>
-              <div>
-                Every place is better with you there.
-                Even an ordinary street becomes a little adventure.
-              </div>
-            </div>
-            <div class="reason-card">
-              <div class="reason-icon">🎵</div>
-              <div>
-                You are my favorite song, the one I never get tired of replaying.
-              </div>
-            </div>
+      <!-- RIGHT: map -->
+      <section class="card">
+        <h2>Nearest tuna steak scanners</h2>
+        <div class="map-wrapper">
+          <!--
+            This is a generic "tuna steak restaurant" search.
+            If you want a fixed city, replace the src with a city-specific embed from Google Maps.
+          -->
+          <iframe
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=tuna+steak+restaurant&output=embed">
+          </iframe>
+          <small>
+            Zoom into your city. Any promising dot can be promoted
+            to “Official Katarzyna Tuna Base” the moment we eat there together.
+          </small>
+        </div>
+      </section>
+    </div>
+
+    <!-- Random mission card -->
+    <section class="card" id="randomMissionCard" style="margin-top:12px;">
+      <h2>Today’s tuna mission 🎯</h2>
+      <p id="missionText">
+        Press the button to generate today’s romantic tuna assignment.
+      </p>
+      <button type="button" id="missionButton">
+        Roll today’s mission 🎲
+      </button>
+    </section>
+
+    <!-- Hall of fame -->
+    <section class="card" style="margin-top:14px;">
+      <h2>Name Day tuna steak hall of fame</h2>
+      <div class="hof-grid">
+        <!-- HOF ENTRY 1 -->
+        <article class="hof-card">
+          <div class="hof-header">
+            <h3>Entry #1 – “Origin Tuna”</h3>
+            <small>Year: 20XX · Rating: ⭐⭐⭐⭐⭐</small>
           </div>
-        </section>
+          <!-- TODO: replace src and data-full with your own photo URLs -->
+          <button class="hof-photo-btn"
+                  type="button"
+                  data-full="https://images.pexels.com/photos/760281/pexels-photo-760281.jpeg?auto=compress&cs=tinysrgb&w=1600">
+            <img
+              src="https://images.pexels.com/photos/760281/pexels-photo-760281.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Placeholder tuna dinner photo for Origin Tuna" />
+          </button>
+          <p class="hof-text">
+            The first time we connected tuna steak to your name.
+            Everything after this was basically destiny.
+          </p>
+        </article>
+
+        <!-- HOF ENTRY 2 -->
+        <article class="hof-card">
+          <div class="hof-header">
+            <h3>Entry #2 – “Bridge Feast”</h3>
+            <small>Year: 20XX · Rating: ⭐⭐⭐⭐⭐ + bonus kiss</small>
+          </div>
+          <button class="hof-photo-btn"
+                  type="button"
+                  data-full="https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&w=1600">
+            <img
+              src="https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Placeholder couple on a bridge at sunset" />
+          </button>
+          <p class="hof-text">
+            We walked, we talked, we ate, I fell for you even harder.
+            Bridges + you + tuna = unbeatable combo.
+          </p>
+        </article>
+
+        <!-- HOF ENTRY 3 -->
+        <article class="hof-card">
+          <div class="hof-header">
+            <h3>Entry #3 – “Work Trip Rescue Tuna”</h3>
+            <small>Year: 20XX · Rating: ⭐⭐⭐⭐✨</small>
+          </div>
+          <button class="hof-photo-btn"
+                  type="button"
+                  data-full="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=1600">
+            <img
+              src="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Placeholder cozy restaurant table with food" />
+          </button>
+          <p class="hof-text">
+            Tuna as emotional support when life was hectic.
+            Result: mood recovered, Katarzyna glowing, mission success.
+          </p>
+        </article>
+
+        <!-- HOF ENTRY 4 -->
+        <article class="hof-card">
+          <div class="hof-header">
+            <h3>Entry #4 – “To Be Devoured”</h3>
+            <small>Year: this one · Rating: pending…</small>
+          </div>
+          <button class="hof-photo-btn"
+                  type="button"
+                  data-full="https://images.pexels.com/photos/1401987/pexels-photo-1401987.jpeg?auto=compress&cs=tinysrgb&w=1600">
+            <img
+              src="https://images.pexels.com/photos/1401987/pexels-photo-1401987.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Placeholder empty plate waiting for tuna" />
+          </button>
+          <p class="hof-text">
+            Awaiting upload of this year’s tuna memories.
+            (Spoiler: they will be spicy, romantic, and slightly ridiculous.)
+          </p>
+        </article>
       </div>
+    </section>
 
-      <div class="right-column">
-        <!-- Memories / Photos -->
-        <section>
-          <h2>Little memories</h2>
-          <p style="font-size: 0.9rem; margin-bottom: 8px; opacity: 0.9;">
-            Some snapshots that always make me smile when I think of your name:
-          </p>
-          <div class="memories-grid">
-            <!-- TODO: Replace background-image URLs with your own photos or remove this grid -->
-            <div class="memory-card">
-              <div class="memory-image"
-                   style="background-image:url('https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=800');">
-              </div>
-              <div class="memory-caption">
-                That walk where we laughed about everything and nothing at all.
-              </div>
-            </div>
-            <div class="memory-card">
-              <div class="memory-image"
-                   style="background-image:url('https://images.pexels.com/photos/3693892/pexels-photo-3693892.jpeg?auto=compress&cs=tinysrgb&w=800');">
-              </div>
-              <div class="memory-caption">
-                The quiet moment where the world disappeared and only we remained.
-              </div>
-            </div>
-            <div class="memory-card">
-              <div class="memory-image"
-                   style="background-image:url('https://images.pexels.com/photos/5727901/pexels-photo-5727901.jpeg?auto=compress&cs=tinysrgb&w=800');">
-              </div>
-              <div class="memory-caption">
-                Your smile, your name, and a feeling I never want to lose.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Closing note -->
-        <section class="closing">
-          <p>
-            If your name was a star, it would be the one I keep wishing on. ✨<br />
-            <span>Happy Name Day, my heart. 💝</span>
-          </p>
-        </section>
-      </div>
-    </main>
+    <!-- Upcoming missions -->
+    <section class="card" style="margin-top:10px;">
+      <h2>Upcoming missions</h2>
+      <div class="tag-upcoming">mission log</div>
+      <ul class="upcoming-list">
+        <li>📝 Pick a new tuna place from the map and declare it “Katarzyna Name Day HQ”.</li>
+        <li>📸 Take a photo of you + tuna + me trying not to look too obsessed.</li>
+        <li>💬 At the table, say one new thing we love about each other (tuna doesn’t count, sadly).</li>
+        <li>🔁 Scan this QR code again next year and add a fresh Hall of Fame entry.</li>
+      </ul>
+    </section>
 
     <footer>
-      Made with 💗 by someone hopelessly in love.
-      <!-- Optional: link to your GitHub profile -->
-      <!-- <br/> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a> -->
+      End of report. Conclusion: Katarzyna remains the best thing on the menu. 🐟❤️
     </footer>
   </div>
 
+  <!-- Lightbox for photos -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="Hall of fame photo" />
+      <button type="button" id="lightboxClose">✕ Close</button>
+    </div>
+  </div>
+
   <script>
-    // === NAME DAY CONFIG ===
-    // TODO: set this to your love's next name day (YYYY-MM-DD)
-    const nextNameDay = new Date("2026-03-25T00:00:00");
+    // === RANDOM MISSION ===
+    (function () {
+      const missions = [
+        "Find the fanciest tuna steak on the menu and order it like royalty. Bonus points if we toast to 'Her Majesty Katarzyna'.",
+        "Pick a tuna place purely based on vibes. If the lighting is romantic and the chairs are comfy, it’s destiny.",
+        "No phones allowed during tuna time… except to take one perfect photo of you and your steak.",
+        "Order one tuna for you, something different for me, and then we trade bites like suspicious but loving scientists.",
+        "Ask the waiter what they would recommend for ‘the most wonderful Katarzyna in the world’ and follow their advice.",
+        "Pretend this is a secret tuna review mission: we rate the steak, the atmosphere, and how many times I made you laugh.",
+        "After tuna, go for a small walk and name three things from the day you’d like to remember forever."
+      ];
 
-    const countdownEl = document.getElementById("countdown");
-    const nameDayDateEl = document.getElementById("nameDayDate");
-    if (nameDayDateEl) {
-      // Show just the date nicely
-      const options = { day: "numeric", month: "long", year: "numeric" };
-      nameDayDateEl.textContent = "Next Name Day: " +
-        nextNameDay.toLocaleDateString(undefined, options);
-    }
+      const btn = document.getElementById("missionButton");
+      const text = document.getElementById("missionText");
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const target = nextNameDay.getTime();
-      const distance = target - now;
+      if (btn && text) {
+        btn.addEventListener("click", function () {
+          const index = Math.floor(Math.random() * missions.length);
+          text.textContent = missions[index];
+        });
+      }
+    })();
 
-      if (!countdownEl) return;
+    // === HALL OF FAME LIGHTBOX ===
+    (function () {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImage");
+      const lightboxClose = document.getElementById("lightboxClose");
+      const backdrop = lightbox ? lightbox.querySelector(".lightbox-backdrop") : null;
 
-      if (distance <= 0) {
-        countdownEl.textContent = "Today is your Name Day! 🎉";
-        return;
+      const buttons = document.querySelectorAll(".hof-photo-btn");
+
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          if (!lightbox || !lightboxImg) return;
+          const fullSrc = btn.getAttribute("data-full") || btn.querySelector("img")?.src;
+          if (fullSrc) {
+            lightboxImg.src = fullSrc;
+            lightbox.classList.add("visible");
+          }
+        });
+      });
+
+      function hideLightbox() {
+        if (lightbox) {
+          lightbox.classList.remove("visible");
+        }
       }
 
-      const days  = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const mins  = Math.floor((distance / (1000 * 60)) % 60);
+      if (lightboxClose) {
+        lightboxClose.addEventListener("click", hideLightbox);
+      }
+      if (backdrop) {
+        backdrop.addEventListener("click", hideLightbox);
+      }
 
-      countdownEl.innerHTML = `
-        <span><strong>${days}</strong> days</span>
-        <span><strong>${hours}</strong> hours</span>
-        <span><strong>${mins}</strong> mins</span>
-      `;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 60 * 1000); // update every minute
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          hideLightbox();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
