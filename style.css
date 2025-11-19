@@ -1,15 +1,27 @@
+/* =========================================================
+   Katarzyna Name Day – warm, modern, airy layout
+   (works with your existing HTML + script.js)
+   ======================================================= */
+
 :root {
-  --bg: radial-gradient(circle at top, #ffe9d2 0, #fff7ec 40%, #fff5f9 100%);
+  /* warm but more neutral + slightly darker than original pastels */
+  --bg: linear-gradient(180deg, #f3eee7 0%, #e9e2d9 40%, #e3dcd3 100%);
   --surface: #ffffff;
-  --accent: #ff7a5c;         /* coral/orange */
-  --accent-soft: #ffe1cf;    /* light orange chip */
-  --accent-2: #ffb74d;       /* brighter tags */
-  --text-main: #3a2620;
-  --text-muted: #8c6f63;
-  --border: #f3dccb;
+  --accent: #ea6a32;         /* warm, modern orange */
+  --accent-soft: #fee3cf;    /* subtle chip background */
+  --accent-2: #ea9a3b;       /* golden accent */
+  --text-main: #1f2933;      /* dark neutral */
+  --text-muted: #6b7280;     /* modern grey */
+  --border: #e0e2ea;
   --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --shadow-soft: 0 18px 45px rgba(146, 93, 58, 0.22);
-  --shadow-card: 0 10px 24px rgba(146, 93, 58, 0.16);
+  --shadow-soft: 0 18px 36px rgba(15, 23, 42, 0.12);
+  --shadow-card: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -18,65 +30,433 @@ body {
   font-family: var(--font);
   display: flex;
   justify-content: center;
-  padding: 22px 10px;
+  padding: 24px 12px;
   color: var(--text-main);
   overflow-x: hidden;
 }
 
+/* main container */
+
 .page {
-  max-width: 1000px;
+  max-width: 980px;
   width: 100%;
-  background: #fffdf8;
-  border-radius: 28px;
+  background: var(--surface);
+  border-radius: 18px;
   box-shadow: var(--shadow-soft);
   border: 1px solid var(--border);
-  padding: 22px 16px 22px;
+  padding: 20px 16px 22px;
   position: relative;
   overflow: hidden;
 }
 
+@media (min-width: 768px) {
+  .page {
+    padding: 24px 28px 26px;
+    border-radius: 20px;
+  }
+}
+
+/* hearts – keep DOM but hide them for a cleaner modern look */
+
+.float-heart {
+  display: none;
+}
+
+/* header */
+
 header {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   position: relative;
   z-index: 1;
+}
+
+.title-block {
+  max-width: 520px;
 }
 
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 4px 11px;
   border-radius: 999px;
-  font-size: 0.75rem;
-  background: var(--accent-soft);
+  font-size: 0.78rem;
+  background: rgba(234, 106, 50, 0.06);
+  border: 1px solid rgba(234, 106, 50, 0.16);
   color: var(--accent);
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 3.1vw, 2.3rem);
   margin-bottom: 6px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+h1 span {
+  color: var(--accent);
+}
+
+.subtitle {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 .badge-year {
-  padding: 8px 12px;
-  border-radius: 12px;
-  background: #fff3e0;
-  border: 1px solid #f5d9b5;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #f3ede4;
+  border: 1px solid #ddd0bf;
   font-size: 0.8rem;
   color: var(--text-muted);
+  white-space: nowrap;
 }
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .badge-year {
+    width: 100%;
+    text-align: left;
+    white-space: normal;
+  }
+}
+
+/* layout grid: text + map */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 799px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* cards */
 
 .card {
   background: var(--surface);
-  border-radius: 20px;
-  padding: 14px 14px 16px;
+  border-radius: 14px;
+  padding: 16px 16px 18px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(146, 93, 58, 0.22);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
+  border-color: rgba(234, 106, 50, 0.3);
+}
+
+.card h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* main text */
+
+.heart-line {
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.heart-line strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.fun-points {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.fun-points li {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.fun-points span:first-child {
+  width: 1.2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* map */
+
+.map-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #d8d9e2;
+  background: #f6f7fb;
+  margin-top: 8px;
+}
+
+iframe {
+  width: 100%;
+  height: 240px;
+  border: 0;
+  display: block;
+}
+
+.map-wrapper small {
+  display: block;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* hall of fame */
+
+.hof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+  font-size: 0.86rem;
+}
+
+.hof-card {
+  border-radius: 12px;
+  border: 1px solid #e0e1ea;
+  background: #fafafa;
+  padding: 9px 10px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hof-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hof-card h3 {
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hof-card small {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.hof-photo-btn {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.hof-photo-btn img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+  max-height: 132px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.hof-photo-btn:hover img {
+  transform: scale(1.02);
+  filter: brightness(1.03);
+}
+
+.hof-text {
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+/* upcoming missions */
+
+.tag-upcoming {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #f2ebe0;
+  color: var(--accent-2);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 7px;
+}
+
+.upcoming-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.upcoming-list li {
+  margin-bottom: 5px;
+  line-height: 1.55;
+}
+
+/* Random mission card */
+
+#randomMissionCard button {
+  margin-top: 10px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), #f28b4f);
+  color: #ffffff;
+  font-size: 0.86rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  font-weight: 500;
+}
+
+#randomMissionCard button:hover {
+  filter: brightness(1.03);
+}
+
+#missionText {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* footer */
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
+}
+
+/* Lightbox for photos */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.lightbox.visible {
+  display: flex;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 100;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 90vh;
+}
+
+#lightboxClose {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+/* Mobile tweaks */
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px 8px;
+  }
+
+  .page {
+    padding: 18px 12px 18px;
+    border-radius: 16px;
+  }
+
+  .card {
+    padding: 13px 12px 14px;
+    border-radius: 12px;
+  }
+
+  iframe {
+    height: 210px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  #randomMissionCard button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  iframe {
+    height: 190px;
+  }
+
+  .chip {
+    font-size: 0.72rem;
+  }
+
+  .badge-year {
+    font-size: 0.76rem;
+  }
 }
