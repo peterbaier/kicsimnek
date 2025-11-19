@@ -1,0 +1,81 @@
+:root {
+  --bg: radial-gradient(circle at top, #ffe9d2 0, #fff7ec 40%, #fff5f9 100%);
+  --surface: #ffffff;
+  --accent: #ff7a5c;         /* coral/orange */
+  --accent-soft: #ffe1cf;    /* light orange chip */
+  --accent-2: #ffb74d;       /* brighter tags */
+  --text-main: #3a2620;
+  --text-muted: #8c6f63;
+  --border: #f3dccb;
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --shadow-soft: 0 18px 45px rgba(146, 93, 58, 0.22);
+  --shadow-card: 0 10px 24px rgba(146, 93, 58, 0.16);
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: var(--font);
+  display: flex;
+  justify-content: center;
+  padding: 22px 10px;
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+.page {
+  max-width: 1000px;
+  width: 100%;
+  background: #fffdf8;
+  border-radius: 28px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+  padding: 22px 16px 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.badge-year {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: #fff3e0;
+  border: 1px solid #f5d9b5;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 14px 14px 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(146, 93, 58, 0.22);
+}
